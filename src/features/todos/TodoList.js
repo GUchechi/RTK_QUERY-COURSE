@@ -1,4 +1,4 @@
-import { useGetTodosQuery } from "../api/apiSlice";
+import { useAddTodoMutation, useDeleteTodoMutation, useGetTodosQuery, useUpdateTodoMutation } from "../api/apiSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faUpload } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
@@ -13,6 +13,9 @@ const TodoList = () => {
     isError,
     error,
   } = useGetTodosQuery();
+  const [addTodo] = useAddTodoMutation()
+  const [updateTodo] = useUpdateTodoMutation()
+  const [deleteTodo] = useDeleteTodoMutation()
 
   const handleSubmit = (e) => {
     e.preventDefault();
