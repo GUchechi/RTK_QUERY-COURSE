@@ -16,7 +16,14 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Todos"],
     }),
-    
+     updateTodo: builder.mutation({
+            query: (todo) => ({
+                url: `/todos/${todo.id}`,
+                method: 'PATCH',
+                body: todo
+            }),
+            invalidatesTags: ['Todos']
+        }),
   }),
 });
 
